@@ -15,8 +15,8 @@ The cloud is accessible via ingame UI or online website
 
 ## Proposed Stack
 
-Users, Auth, Permissions, Content/Models(With relations n:n, 1:1, 1:n): https://strapi.io/ (Koa, Bookshelf/Mongoose, nodemail) 
-Database: MongoDB, Postgres or MySQL (strapi supports all three)
+- **Users, Auth, Permissions, Content/Models**(With relations n:n, 1:1, 1:n): https://strapi.io/ (Koa, Bookshelf/Mongoose, nodemail) 
+- **Database:** MongoDB, Postgres or MySQL (strapi supports all three)
 
 ## Objects
 
