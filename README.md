@@ -26,30 +26,30 @@ We already thought about this here: https://github.com/inexorgame/inexor-core/wi
 
 This is a preview of a potential data schema.
 
-``` js
+``` 
 {
     user: {
-        username,
-        password,
-        contents,
-        clans: [clan],
-        mainClan: clan,
-        avatar,
-        model,
-        friends: [user]
+        username: string,
+        password: string,
+        contents: [content] | null,
+        clans: [clan] | null,
+        mainClan: clan | null,
+        avatar: binary,
+        model: string,
+        friends: [user] | null
     },
     content: {
         author: user,
-        title,
-        description,
-        package,
+        title: string,
+        description: string,
+        package: binary,
         license: license,
-        rating,
+        rating: number,
         gamemodes: [gamemode]
-        comments: [comment],
+        comments: [comment] | null,
         type: ['texture', 'sound', 'map', 'prefab', 'entity'],
-        dependencies: [content],
-        dependents: [content],
+        dependencies: [content] | null,
+        dependents: [content] | null,
     },
     gamemode: {
         name,
@@ -57,30 +57,45 @@ This is a preview of a potential data schema.
         maps: [content],
     },
     server: {
-        name,
+        name: string,
         creator: user,
-        players: [user],
-        maxPlayers,
+        players: [user] | null,
+        maxPlayers: number,
         gamemode: gamemode,
         map: content,
-        mapCycle: [content],
+        mapCycle: [content] | null,
     },
     comment: {
         author: user,
-        text,
-        rating,
+        text: string,
+        rating: number,
+        parent: comment,
+        childs: comment
     },
     license: {
-        name,
-        description,
-        contents: [content],
+        name: string,
+        description: string,
+        contents: [content] | null,
     }
     clan: {
-        name,
-        description,
-        tag,
+        name: string,
+        description: string,
+        tag: string,
         founder: user,
         members: [user],
     },
 }
 ```
+
+## Design questions / decisions
+
+There are some design questions we need to decide. These should be decided as early as possible.
+Here is a list of the ones we have so far (feel free to suggest more ;-) ):
+
+ * Do we allow a name change?
+   * If yes: How do we implement it? Possibilities:
+     * Names need to be unique, but can be changed.
+     * Names may be duplicate. Only unique attribute must be the email (would require an email field).
+     * The Steam-solution: One unique, permanent login-name and a display name (would require another field). This solution might be the one which would be the easiest to integrate.
+ * Rename clan(s) to team(s)?
+ * Do we require an email-address?
