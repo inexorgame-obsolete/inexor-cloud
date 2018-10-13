@@ -32,8 +32,8 @@ This is a preview of a potential data schema.
         username,
         password,
         contents,
-        clans: [clan],
-        mainClan: clan,
+        teams: [team],
+        mainTeam: team,
         avatar,
         model,
         friends: [user]
@@ -75,7 +75,7 @@ This is a preview of a potential data schema.
         description,
         contents: [content],
     }
-    clan: {
+    team: {
         name,
         description,
         tag,
