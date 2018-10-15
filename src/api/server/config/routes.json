@@ -1,0 +1,76 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/servers",
+      "handler": "Server.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/servers/count",
+      "handler": "Server.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/servers/:id",
+      "handler": "Server.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/servers",
+      "handler": "Server.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/servers/:id",
+      "handler": "Server.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/servers/:id",
+      "handler": "Server.destroy",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/servers/:id/relationships/:relation",
+      "handler": "Server.createRelation",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/servers/:id/relationships/:relation",
+      "handler": "Server.updateRelation",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/servers/:id/relationships/:relation",
+      "handler": "Server.destroyRelation",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

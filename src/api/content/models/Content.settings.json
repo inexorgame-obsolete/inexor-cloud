@@ -1,0 +1,76 @@
+{
+  "connection": "default",
+  "collectionName": "contents",
+  "info": {
+    "name": "content",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "default": "",
+      "type": "string"
+    },
+    "description": {
+      "default": "",
+      "type": "text"
+    },
+    "authors": {
+      "collection": "user",
+      "via": "contents",
+      "dominant": true,
+      "plugin": "users-permissions"
+    },
+    "package": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "type": {
+      "enum": [
+        "texture",
+        "sound",
+        "map",
+        "prefab",
+        "entity",
+        "collection"
+      ],
+      "default": "",
+      "type": "enumeration"
+    },
+    "dependencies": {
+      "collection": "content",
+      "via": "dependents",
+      "dominant": true
+    },
+    "dependents": {
+      "collection": "content",
+      "via": "dependencies"
+    },
+    "rating": {
+      "default": "",
+      "type": "float"
+    },
+    "license": {
+      "model": "license",
+      "via": "contents"
+    },
+    "gamemodes": {
+      "collection": "gamemode",
+      "via": "maps"
+    },
+    "teamHome": {
+      "model": "team",
+      "via": "homeMap"
+    },
+    "servers": {
+      "collection": "server",
+      "via": "map"
+    }
+  }
+}

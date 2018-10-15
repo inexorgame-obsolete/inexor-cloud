@@ -1,0 +1,47 @@
+{
+  "connection": "default",
+  "collectionName": "servers",
+  "info": {
+    "name": "server",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "maxLength": 128,
+      "unique": true,
+      "minLength": 1,
+      "type": "string"
+    },
+    "creator": {
+      "model": "user",
+      "via": "servers",
+      "plugin": "users-permissions"
+    },
+    "players": {
+      "collection": "user",
+      "via": "server",
+      "plugin": "users-permissions"
+    },
+    "maxPlayers": {
+      "default": "",
+      "max": 1024,
+      "min": 1,
+      "type": "integer",
+      "required": true
+    },
+    "gamemode": {
+      "model": "gamemode",
+      "via": "servers"
+    },
+    "map": {
+      "model": "content",
+      "via": "servers"
+    }
+  }
+}

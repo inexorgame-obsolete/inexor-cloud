@@ -1,0 +1,32 @@
+{
+  "connection": "default",
+  "collectionName": "comments",
+  "info": {
+    "name": "comment",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "text": {
+      "default": "",
+      "maxLength": 8100,
+      "minLength": 1,
+      "type": "text"
+    },
+    "author": {
+      "model": "user",
+      "via": "comments",
+      "plugin": "users-permissions"
+    },
+    "rating": {
+      "default": "",
+      "max": 5,
+      "min": 1,
+      "type": "integer"
+    }
+  }
+}
