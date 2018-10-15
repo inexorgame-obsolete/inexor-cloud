@@ -90,6 +90,7 @@ This is a preview of a potential data schema.
         tag: unique(string),
         founder: user,
         members: [user],
+        homeMap: content
     }
 }
 ```
