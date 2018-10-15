@@ -29,8 +29,9 @@ This is a preview of a potential data schema.
 ```
 {
     user: {
-        username: string,
+        displayname: string,
         email: string,
+        username: unique(string),
         password: string,
         contents: [content] | null,
         teams: [team] | null,
@@ -41,6 +42,8 @@ This is a preview of a potential data schema.
         friends: [user] | null
     },
     content: {
+        name: unique(string),
+        version: string,
         author: user,
         title: string,
         description: string,
@@ -54,8 +57,8 @@ This is a preview of a potential data schema.
         dependents: [content] | null,
     },
     gamemode: {
-        name,
-        description,
+        name: unique(string),
+        description: string,
         maps: [content],
     },
     server: {
@@ -66,37 +69,27 @@ This is a preview of a potential data schema.
         gamemode: gamemode,
         map: content,
         mapCycle: [content] | null,
+        ip: string,
+        port: number
     },
     comment: {
         author: user,
         text: string,
         rating: number,
         parent: comment,
-        childs: comment
+        child: comment
     },
     license: {
-        name: string,
+        name: unique(string),
         description: string,
         contents: [content] | null,
-    }
+    },
     team: {
-        name,
-        description,
-        tag,
+        name: unique(string),
+        description: string,
+        tag: unique(string),
         founder: user,
         members: [user],
     },
 }
 ```
-
-## Design questions / decisions
-
-There are some design questions we need to decide. These should be decided as early as possible.
-Here is a list of the ones we have so far (feel free to suggest more ;-) ):
-
- * Do we allow a name change?
-   * If yes: How do we implement it? Possibilities:
-     * Names need to be unique, but can be changed.
-     * Names may be duplicate. Only unique attribute must be the email (would require an email field).
-     * The Steam-solution: One unique, permanent login-name and a display name (would require another field). This solution might be the one which would be the easiest to integrate.
- * Do we require an email-address?
