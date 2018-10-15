@@ -1,0 +1,20 @@
+{
+  "defaultConnection": "default",
+  "connections": {
+    "default": {
+      "connector": "strapi-hook-bookshelf",
+      "settings": {
+        "client": "mysql",
+        "host": "127.0.0.1",
+        "srv": false,
+        "port": "3333",
+        "database": "inexor",
+        "username": "inexor",
+        "password": "NUINUY3S9Bjsn"
+      },
+      "options": {
+        "ssl": false
+      }
+    }
+  }
+}
