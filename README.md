@@ -15,7 +15,7 @@ The cloud is accessible via ingame UI or online website
 
 ## Proposed Stack
 
-- **Users, Auth, Permissions, Content/Models**(With relations n:n, 1:1, 1:n): https://strapi.io/ (Koa, Bookshelf/Mongoose, nodemail) 
+- **Users, Auth, Permissions, Content/Models**(With relations n:n, 1:1, 1:n): https://strapi.io/ (Koa, Bookshelf/Mongoose, nodemail)
 - **Database:** MongoDB, Postgres or MySQL (strapi supports all three)
 
 ## Objects
@@ -26,67 +26,71 @@ We already thought about this here: https://github.com/inexorgame/inexor-core/wi
 
 This is a preview of a potential data schema.
 
-``` js
+```
 {
     user: {
-        username,
-        email
-        password,
-        contents: [content],
-        comments: [comment]
-        teams: [team],
-        teamsFounded: [team]
-        mainTeam: team,
+        displayname: string,
+        email: string,
+        username: unique(string),
+        password: string,
+        contents: [content] | null,
+        teams: [team] | null,
+        teamsFounded: [team] | null,
+        mainTeam: team | null,
         avatar: binary,
-        model,
-        friends: [user],
-        settings: string,
+        model: string,
+        friends: [user] | null
     },
     content: {
-        title,
-        description,
+        name: unique(string),
+        version: string,
         author: user,
-        package,
+        title: string,
+        description: string,
+        package: binary,
         license: license,
-        rating,
+        rating: number,
         gamemodes: [gamemode]
-        comments: [comment],
-        type: ['texture', 'sound', 'model', 'collection', 'map', 'prefab', 'entity'],
-        dependencies: [content],
-        dependents: [content],
-        teamHome: team,
+        comments: [comment] | null,
+        type: ['texture', 'sound', 'map', 'prefab', 'entity'],
+        dependencies: [content] | null,
+        dependents: [content] | null,
     },
     gamemode: {
-        name,
-        description,
+        name: unique(string),
+        description: string,
         maps: [content],
     },
     server: {
-        name,
+        name: string,
         creator: user,
-        players: [user],
-        maxPlayers,
+        players: [user] | null,
+        maxPlayers: number,
         gamemode: gamemode,
         map: content,
-        mapCycle: [content],
+        mapCycle: [content] | null,
+        ip: string,
+        port: number
     },
     comment: {
         author: user,
-        text,
-        rating,
+        text: string,
+        rating: number,
+        parent: comment,
+        child: comment
     },
     license: {
-        name,
-        description,
-        contents: [content],
-    }
+        name: unique(string),
+        description: string,
+        contents: [content] | null,
+    },
     team: {
-        name,
-        description,
-        tag,
+        name: unique(string),
+        description: string,
+        tag: unique(string),
         founder: user,
         members: [user],
         homeMap: content
-    },
+    }
 }
 ```
