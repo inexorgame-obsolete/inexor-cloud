@@ -76,8 +76,8 @@ This is a preview of a potential data schema.
         author: user,
         text: string,
         rating: number,
-        parent: comment,
-        child: comment
+        parent: comment | null,
+        children: [comment] | null
     },
     license: {
         name: unique(string),
