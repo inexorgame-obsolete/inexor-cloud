@@ -21,8 +21,8 @@
     },
     "authors": {
       "collection": "user",
-      "via": "contents",
       "dominant": true,
+      "via": "contents",
       "plugin": "users-permissions"
     },
     "package": {

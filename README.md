@@ -30,26 +30,31 @@ This is a preview of a potential data schema.
 {
     user: {
         username,
+        email
         password,
-        contents,
+        contents: [content],
+        comments: [comment]
         teams: [team],
+        teamsFounded: [team]
         mainTeam: team,
-        avatar,
+        avatar: binary,
         model,
-        friends: [user]
+        friends: [user],
+        settings: string,
     },
     content: {
-        author: user,
         title,
         description,
+        author: user,
         package,
         license: license,
         rating,
         gamemodes: [gamemode]
         comments: [comment],
-        type: ['texture', 'sound', 'map', 'prefab', 'entity'],
+        type: ['texture', 'sound', 'model', 'collection', 'map', 'prefab', 'entity'],
         dependencies: [content],
         dependents: [content],
+        teamHome: team,
     },
     gamemode: {
         name,
