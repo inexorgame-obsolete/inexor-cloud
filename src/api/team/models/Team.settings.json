@@ -35,8 +35,8 @@
     },
     "members": {
       "collection": "user",
-      "via": "teams",
       "dominant": true,
+      "via": "teams",
       "plugin": "users-permissions"
     },
     "homeMap": {
