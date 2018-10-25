@@ -39,13 +39,16 @@ This is a preview of a potential data schema.
         mainTeam: team | null,
         avatar: binary,
         model: string,
-        friends: [user] | null
+        friends: [user] | null,
+        comments: [comment] | null,
+        serversPlaying: [server] | null,
+        serversCreated: [server] | null,
     },
     content: {
         name: unique(string),
-        version: string,
-        author: user,
         title: string,
+        authors: [user],
+        version: string,
         description: string,
         package: binary,
         license: license,
@@ -55,6 +58,8 @@ This is a preview of a potential data schema.
         type: ['texture', 'sound', 'map', 'prefab', 'entity'],
         dependencies: [content] | null,
         dependents: [content] | null,
+        teamHome: team,
+        servers: [server],
     },
     gamemode: {
         name: unique(string),
@@ -90,7 +95,8 @@ This is a preview of a potential data schema.
         tag: unique(string),
         founder: user,
         members: [user],
-        homeMap: content
+        homeMap: content | null,
+        founded: date,
     }
 }
 ```
