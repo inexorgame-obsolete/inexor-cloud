@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/comments/:id",
+      "path": "/comments/:_id",
       "handler": "Comment.findOne",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/comments/:id",
+      "path": "/comments/:_id",
       "handler": "Comment.update",
       "config": {
         "policies": []
@@ -42,32 +42,8 @@
     },
     {
       "method": "DELETE",
-      "path": "/comments/:id",
+      "path": "/comments/:_id",
       "handler": "Comment.destroy",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "POST",
-      "path": "/comments/:id/relationships/:relation",
-      "handler": "Comment.createRelation",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "PUT",
-      "path": "/comments/:id/relationships/:relation",
-      "handler": "Comment.updateRelation",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "DELETE",
-      "path": "/comments/:id/relationships/:relation",
-      "handler": "Comment.destroyRelation",
       "config": {
         "policies": []
       }

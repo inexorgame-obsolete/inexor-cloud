@@ -1,31 +1,28 @@
 {
   "connection": "default",
-  "collectionName": "teams",
+  "collectionName": "team",
   "info": {
     "name": "team",
     "description": ""
   },
   "options": {
-    "increments": true,
-    "timestamps": true,
-    "comment": ""
+    "timestamps": true
   },
   "attributes": {
     "name": {
       "default": "",
-      "maxLength": 32,
-      "unique": true,
-      "minLength": 2,
       "type": "string"
+    },
+    "homeMap": {
+      "model": "content",
+      "via": "teamHome"
     },
     "description": {
       "default": "",
-      "maxLength": 32000,
       "type": "text"
     },
     "tag": {
       "default": "",
-      "unique": true,
       "type": "string"
     },
     "founder": {
@@ -38,10 +35,6 @@
       "dominant": true,
       "via": "teams",
       "plugin": "users-permissions"
-    },
-    "homeMap": {
-      "model": "content",
-      "via": "teamHome"
     }
   }
 }

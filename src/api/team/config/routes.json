@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/teams/:id",
+      "path": "/teams/:_id",
       "handler": "Team.findOne",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/teams/:id",
+      "path": "/teams/:_id",
       "handler": "Team.update",
       "config": {
         "policies": []
@@ -42,32 +42,8 @@
     },
     {
       "method": "DELETE",
-      "path": "/teams/:id",
+      "path": "/teams/:_id",
       "handler": "Team.destroy",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "POST",
-      "path": "/teams/:id/relationships/:relation",
-      "handler": "Team.createRelation",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "PUT",
-      "path": "/teams/:id/relationships/:relation",
-      "handler": "Team.updateRelation",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "DELETE",
-      "path": "/teams/:id/relationships/:relation",
-      "handler": "Team.destroyRelation",
       "config": {
         "policies": []
       }

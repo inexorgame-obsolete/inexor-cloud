@@ -1,28 +1,21 @@
 {
   "connection": "default",
-  "collectionName": "gamemodes",
+  "collectionName": "",
   "info": {
     "name": "gamemode",
     "description": ""
   },
   "options": {
-    "increments": true,
-    "timestamps": true,
-    "comment": ""
+    "timestamps": true
   },
   "attributes": {
     "name": {
       "default": "",
       "type": "string"
     },
-    "description": {
-      "default": "",
-      "type": "text"
-    },
-    "maps": {
+    "contents": {
       "collection": "content",
-      "via": "gamemodes",
-      "dominant": true
+      "via": "gamemodes"
     },
     "servers": {
       "collection": "server",

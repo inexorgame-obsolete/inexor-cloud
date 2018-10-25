@@ -21,26 +21,23 @@
   "dependencies": {
     "lodash": "4.x.x",
     "strapi": "3.0.0-alpha.14.3",
-    "strapi-hook-bookshelf": "3.0.0-alpha.14.3",
-    "strapi-hook-knex": "3.0.0-alpha.14.3",
-    "knex": "latest",
-    "mysql": "2.16.0"
+    "strapi-hook-mongoose": "3.0.0-alpha.14.3"
   },
   "author": {
-    "name": "root",
+    "name": "misan",
     "email": "",
     "url": ""
   },
   "maintainers": [
     {
-      "name": "root",
+      "name": "misan",
       "email": "",
       "url": ""
     }
   ],
   "strapi": {
     "packageManager": "npm",
-    "uuid": "96b21df1-ae33-45df-a268-addfcd2d9b25"
+    "uuid": "2040c494-2f30-4107-bd61-9ba06ea8243f"
   },
   "engines": {
     "node": ">= 9.0.0",

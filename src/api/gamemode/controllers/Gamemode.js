@@ -29,6 +29,10 @@ module.exports = {
    */
 
   findOne: async (ctx) => {
+    if (!ctx.params._id.match(/^[0-9a-fA-F]{24}$/)) {
+      return ctx.notFound();
+    }
+
     return strapi.services.gamemode.fetch(ctx.params);
   },
 
@@ -70,35 +74,5 @@ module.exports = {
 
   destroy: async (ctx, next) => {
     return strapi.services.gamemode.remove(ctx.params);
-  },
-
-  /**
-   * Add relation to a/an gamemode record.
-   *
-   * @return {Object}
-   */
-
-  createRelation: async (ctx, next) => {
-    return strapi.services.gamemode.addRelation(ctx.params, ctx.request.body);
-  },
-
-  /**
-   * Update relation to a/an gamemode record.
-   *
-   * @return {Object}
-   */
-
-  updateRelation: async (ctx, next) => {
-    return strapi.services.gamemode.editRelation(ctx.params, ctx.request.body);
-  },
-
-  /**
-   * Destroy relation to a/an gamemode record.
-   *
-   * @return {Object}
-   */
-
-  destroyRelation: async (ctx, next) => {
-    return strapi.services.gamemode.removeRelation(ctx.params, ctx.request.body);
   }
 };

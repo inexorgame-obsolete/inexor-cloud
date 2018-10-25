@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/licenses/:id",
+      "path": "/licenses/:_id",
       "handler": "License.findOne",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/licenses/:id",
+      "path": "/licenses/:_id",
       "handler": "License.update",
       "config": {
         "policies": []
@@ -42,32 +42,8 @@
     },
     {
       "method": "DELETE",
-      "path": "/licenses/:id",
+      "path": "/licenses/:_id",
       "handler": "License.destroy",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "POST",
-      "path": "/licenses/:id/relationships/:relation",
-      "handler": "License.createRelation",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "PUT",
-      "path": "/licenses/:id/relationships/:relation",
-      "handler": "License.updateRelation",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "DELETE",
-      "path": "/licenses/:id/relationships/:relation",
-      "handler": "License.destroyRelation",
       "config": {
         "policies": []
       }

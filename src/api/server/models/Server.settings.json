@@ -1,35 +1,31 @@
 {
   "connection": "default",
-  "collectionName": "servers",
+  "collectionName": "server",
   "info": {
     "name": "server",
     "description": ""
   },
   "options": {
-    "increments": true,
-    "timestamps": true,
-    "comment": ""
+    "timestamps": true
   },
   "attributes": {
     "name": {
       "default": "",
-      "maxLength": 128,
-      "unique": true,
-      "minLength": 1,
       "type": "string"
     },
     "creator": {
       "model": "user",
-      "via": "servers",
+      "via": "serversCreated",
       "plugin": "users-permissions"
     },
     "players": {
       "collection": "user",
-      "via": "server",
+      "dominant": true,
+      "via": "serversPlaying",
       "plugin": "users-permissions"
     },
     "maxPlayers": {
-      "default": "",
+      "default": 12,
       "max": 1024,
       "min": 1,
       "type": "integer",

@@ -29,6 +29,10 @@ module.exports = {
    */
 
   findOne: async (ctx) => {
+    if (!ctx.params._id.match(/^[0-9a-fA-F]{24}$/)) {
+      return ctx.notFound();
+    }
+
     return strapi.services.license.fetch(ctx.params);
   },
 
@@ -70,35 +74,5 @@ module.exports = {
 
   destroy: async (ctx, next) => {
     return strapi.services.license.remove(ctx.params);
-  },
-
-  /**
-   * Add relation to a/an license record.
-   *
-   * @return {Object}
-   */
-
-  createRelation: async (ctx, next) => {
-    return strapi.services.license.addRelation(ctx.params, ctx.request.body);
-  },
-
-  /**
-   * Update relation to a/an license record.
-   *
-   * @return {Object}
-   */
-
-  updateRelation: async (ctx, next) => {
-    return strapi.services.license.editRelation(ctx.params, ctx.request.body);
-  },
-
-  /**
-   * Destroy relation to a/an license record.
-   *
-   * @return {Object}
-   */
-
-  destroyRelation: async (ctx, next) => {
-    return strapi.services.license.removeRelation(ctx.params, ctx.request.body);
   }
 };

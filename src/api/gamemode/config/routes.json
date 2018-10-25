@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/gamemodes/:id",
+      "path": "/gamemodes/:_id",
       "handler": "Gamemode.findOne",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/gamemodes/:id",
+      "path": "/gamemodes/:_id",
       "handler": "Gamemode.update",
       "config": {
         "policies": []
@@ -42,32 +42,8 @@
     },
     {
       "method": "DELETE",
-      "path": "/gamemodes/:id",
+      "path": "/gamemodes/:_id",
       "handler": "Gamemode.destroy",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "POST",
-      "path": "/gamemodes/:id/relationships/:relation",
-      "handler": "Gamemode.createRelation",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "PUT",
-      "path": "/gamemodes/:id/relationships/:relation",
-      "handler": "Gamemode.updateRelation",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "DELETE",
-      "path": "/gamemodes/:id/relationships/:relation",
-      "handler": "Gamemode.destroyRelation",
       "config": {
         "policies": []
       }

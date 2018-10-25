@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  api:
+    image: strapi/strapi
+    environment:
+      - APP_NAME=inexor-cloud
+      - DATABASE_CLIENT=mongo
+      - DATABASE_HOST=inexor_cloud_db
+      - DATABASE_PORT=27017
+      - DATABASE_NAME=inexor
+      - DATABASE_USERNAME=inexor
+      - DATABASE_PASSWORD=akLSOEUYNuy79381nNA
+      - HOST=localhost
+    ports:
+      - 1337:1337
+    volumes:
+      - ./src:/usr/src/api/strapi-app
+      #- /usr/src/api/strapi-app/node_modules
+    depends_on:
+      - db
+    restart: always
+  db:
+    image: mongo
+    environment:
+      - MONGO_INITDB_DATABASE=inexor
+      - MONGO_INITDB_ROOT_USERNAME=inexor
+      - MONGO_INITDB_ROOT_PASSWORD=akLSOEUYNuy79381nNA
+    ports:
+      - 27017:27017
+    volumes:
+      - ./db:/data/db
+    restart: always
+
+networks:
+  inexor:

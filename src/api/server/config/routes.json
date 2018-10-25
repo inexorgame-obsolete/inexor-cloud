@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/servers/:id",
+      "path": "/servers/:_id",
       "handler": "Server.findOne",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/servers/:id",
+      "path": "/servers/:_id",
       "handler": "Server.update",
       "config": {
         "policies": []
@@ -42,32 +42,8 @@
     },
     {
       "method": "DELETE",
-      "path": "/servers/:id",
+      "path": "/servers/:_id",
       "handler": "Server.destroy",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "POST",
-      "path": "/servers/:id/relationships/:relation",
-      "handler": "Server.createRelation",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "PUT",
-      "path": "/servers/:id/relationships/:relation",
-      "handler": "Server.updateRelation",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "DELETE",
-      "path": "/servers/:id/relationships/:relation",
-      "handler": "Server.destroyRelation",
       "config": {
         "policies": []
       }

@@ -1,23 +1,17 @@
 {
   "connection": "default",
-  "collectionName": "licenses",
+  "collectionName": "",
   "info": {
     "name": "license",
     "description": ""
   },
   "options": {
-    "increments": true,
-    "timestamps": true,
-    "comment": ""
+    "timestamps": true
   },
   "attributes": {
     "name": {
       "default": "",
       "type": "string"
-    },
-    "description": {
-      "default": "",
-      "type": "text"
     },
     "contents": {
       "collection": "content",

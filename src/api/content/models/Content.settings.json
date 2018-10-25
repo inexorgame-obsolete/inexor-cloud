@@ -1,14 +1,12 @@
 {
   "connection": "default",
-  "collectionName": "contents",
+  "collectionName": "content",
   "info": {
     "name": "content",
     "description": ""
   },
   "options": {
-    "increments": true,
-    "timestamps": true,
-    "comment": ""
+    "timestamps": true
   },
   "attributes": {
     "title": {
@@ -26,22 +24,40 @@
       "plugin": "users-permissions"
     },
     "package": {
-      "model": "file",
+      "collection": "file",
       "via": "related",
       "plugin": "upload",
       "required": false
     },
+    "license": {
+      "model": "license",
+      "via": "contents"
+    },
+    "rating": {
+      "default": "",
+      "type": "float"
+    },
+    "gamemodes": {
+      "collection": "gamemode",
+      "via": "contents",
+      "dominant": true
+    },
+    "comments": {
+      "collection": "comment",
+      "via": "content"
+    },
     "type": {
+      "default": "",
+      "type": "enumeration",
       "enum": [
-        "texture",
-        "sound",
+        "collection",
         "map",
         "prefab",
-        "entity",
-        "collection"
-      ],
-      "default": "",
-      "type": "enumeration"
+        "model",
+        "texture",
+        "sound",
+        "entity"
+      ]
     },
     "dependencies": {
       "collection": "content",
@@ -51,18 +67,6 @@
     "dependents": {
       "collection": "content",
       "via": "dependencies"
-    },
-    "rating": {
-      "default": "",
-      "type": "float"
-    },
-    "license": {
-      "model": "license",
-      "via": "contents"
-    },
-    "gamemodes": {
-      "collection": "gamemode",
-      "via": "maps"
     },
     "teamHome": {
       "model": "team",
