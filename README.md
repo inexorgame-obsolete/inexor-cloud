@@ -55,7 +55,7 @@ This is a preview of a potential data schema.
         rating: number,
         gamemodes: [gamemode]
         comments: [comment] | null,
-        type: ['texture', 'sound', 'map', 'prefab', 'entity'],
+        type: ['collection', 'map', 'texture', 'sound', 'model', 'prefab', 'entity'],
         dependencies: [content] | null,
         dependents: [content] | null,
         teamHome: team,
